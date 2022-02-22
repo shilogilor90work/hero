@@ -1,5 +1,5 @@
 # Hero
-small task for job interview
+Small task for job interview
 
 In this task I created a django server to handle a Restful API.
 I used rabbitmq to handle the queue for the job requests.
