@@ -1,0 +1,23 @@
+sudo apt-get update
+sudo apt install python3-pip
+sudo pip3 install Django
+sudo pip3 install celery
+sudo apt-get install rabbitmq-server
+sudo systemctl enable rabbitmq-server
+# sudo systemctl start rabbitmq-server
+sudo service rabbitmq-server start
+service rabbitmq-server status
+
+
+django-admin startproject hero
+
+python3 manage.py startapp api
+
+
+python3 manage.py makemigrations
+python3 manage.py migrate
+
+celery -A hero worker --loglevel=info --pool=threads
+# celery -A proj worker --loglevel=info
+celery flower -A tasks
+python3 manage.py runserver
